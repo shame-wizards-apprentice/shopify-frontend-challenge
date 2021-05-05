@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import store from '../config/store';
 
 const useStyles = makeStyles((theme) => ({
     media: {
@@ -26,10 +26,32 @@ const useStyles = makeStyles((theme) => ({
 const ResultCard = (props) => {
     const classes = useStyles();
 
+    const nominateMe = () => {
+        const existingNominations = store.getState().nomination.nominations
+        for(let i=0; i>existingNominations.length; i++) {
+            if(existingNominations[i].id ===props.id) {
+                console.log('oops, already nominated')
+            }
+        }
+        if(existingNominations.length>=5) {
+            console.log('oops, no nomination for you')
+        }else {
+            store.dispatch({
+                type: 'CHANCE_NOMINATIONS',
+                payload: {
+                    ...store.getState().nomination, 
+                    nominations: existingNominations.push(props)
+                }
+            });
+            localStorage.setItem('nominations', JSON.stringify(existingNominations))
+        }
+        
+    }
+
     return (
-        <Card data-nominated={props.nominated}>
+        <Card data-key={props.id}>
             <CardActionArea>
-                <img className={classes.cardImage} src={props.Poster}></img>
+                <img className={classes.cardImage} src={props.Poster} alt=''></img>
                 <CardMedia
                     className={classes.media}
                     title={props.Title}
@@ -44,7 +66,7 @@ const ResultCard = (props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={nominateMe}>
                     Nominate
                 </Button>
             </CardActions>

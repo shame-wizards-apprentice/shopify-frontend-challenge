@@ -16,7 +16,16 @@ function App() {
         }
     });
     }
-  })
+
+    if(localStorage.getItem('nominations')) {
+      store.dispatch({
+        type: 'CHANGE_NOMINATIONS',
+        payload: {
+          nominations: JSON.parse(localStorage.getItem('nominations'))
+        }
+      });
+    }
+  });
 
   return (
     <div className="App">
