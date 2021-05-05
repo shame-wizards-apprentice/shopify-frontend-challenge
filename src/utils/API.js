@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL_PREFIX = 'http://www.omdbapi.com/?t='
+const URL_PREFIX = 'http://www.omdbapi.com/?s='
 const API_KEY = '&apikey=6dfb3408'
 
 const API = {
