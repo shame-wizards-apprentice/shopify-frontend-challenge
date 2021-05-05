@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     media: {
-        height: '50vh'
+        height: '50vh',
     },
     paper: {
         padding: theme.spacing(2),
@@ -29,14 +29,17 @@ const ResultCard = (props) => {
     return (
         <Card>
             <CardActionArea>
+                <img className={classes.cardImage} src={props.Poster}></img>
                 <CardMedia
                     className={classes.media}
-                    image={props.image}
-                    title={props.title}
+                    title={props.Title}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {props.title}
+                        {props.Title}
+                    </Typography>
+                    <Typography gutterBottom variant="caption" component="h2">
+                        {props.Year}
                     </Typography>
                 </CardContent>
             </CardActionArea>
