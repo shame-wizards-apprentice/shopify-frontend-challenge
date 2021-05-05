@@ -27,7 +27,7 @@ const ResultCard = (props) => {
     const classes = useStyles();
 
     return (
-        <Card>
+        <Card data-nominated={props.nominated}>
             <CardActionArea>
                 <img className={classes.cardImage} src={props.Poster}></img>
                 <CardMedia

@@ -54,7 +54,8 @@ const SearchBar = (props) => {
                     payload: {
                         results: res.data.Search
                     }
-                })
+                });
+                localStorage.setItem('searchResults', JSON.stringify(res.data.Search))
             }
         });
     }
