@@ -28,7 +28,11 @@ const ResultCard = (props) => {
 
     const nominateMe = () => {
         const existingNominations = store.getState().nomination.nominations
-        if(existingNominations.length>=5 && existingNominations.indexOf(props) !== -1) {
+        if(existingNominations.length>=5) {
+            console.log('too many nominations')
+        } else if (existingNominations.indexOf(props) !== -1) {
+            console.log('already nominated')
+        }else {
             const newNominations = existingNominations.concat(props)
             console.log(newNominations)
             store.dispatch({
@@ -39,8 +43,6 @@ const ResultCard = (props) => {
                 }
             });
             localStorage.setItem('nominations', JSON.stringify(newNominations))
-        } else {
-            console.log('no nomination for you')
         }
         
     }
