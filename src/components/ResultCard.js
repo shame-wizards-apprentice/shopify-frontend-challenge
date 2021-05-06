@@ -28,14 +28,7 @@ const ResultCard = (props) => {
 
     const nominateMe = () => {
         const existingNominations = store.getState().nomination.nominations
-        for(let i=0; i>existingNominations.length; i++) {
-            if(existingNominations[i].id ===props.imdbID) {
-                console.log('oops, already nominated')
-            }
-        }
-        if(existingNominations.length>=5) {
-            console.log('oops, no nomination for you')
-        }else {
+        if(existingNominations.length>=5 && existingNominations.indexOf(props) !== -1) {
             const newNominations = existingNominations.concat(props)
             console.log(newNominations)
             store.dispatch({
@@ -46,6 +39,8 @@ const ResultCard = (props) => {
                 }
             });
             localStorage.setItem('nominations', JSON.stringify(newNominations))
+        } else {
+            console.log('no nomination for you')
         }
         
     }
