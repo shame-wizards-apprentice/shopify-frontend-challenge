@@ -30,14 +30,14 @@ const NominationCard = (props) => {
         const noms = store.getState().nomination.nominations
         const newNominations = noms.filter(nom => nom.id !== props.id)
         console.log(newNominations)
-        // store.dispatch({
-        //     type: 'CHANGE_NOMINATIONS',
-        //     payload: {
-        //         ...store.getState().nomination, 
-        //         nominations: newNominations
-        //     }
-        // });
-        // localStorage.setItem('nominations', JSON.stringify(newNominations))
+        store.dispatch({
+            type: 'CHANGE_NOMINATIONS',
+            payload: {
+                ...store.getState().nomination, 
+                nominations: newNominations
+            }
+        });
+        localStorage.setItem('nominations', JSON.stringify(newNominations))
     }
 
     return (
