@@ -4,20 +4,21 @@ import './App.css';
 import store from './config/store'
 import SearchBar from './components/SearchBar';
 import ResultsContainer from './components/ResultsContainer';
+import NominationContainer from './components/NominationContainer';
 
 
 function App() {
   useEffect(() => {
-    if(localStorage.getItem('searchResults')) {
+    if (localStorage.getItem('searchResults')) {
       store.dispatch({
         type: 'SEARCH_MOVIES',
         payload: {
-            results: JSON.parse(localStorage.getItem('searchResults'))
+          results: JSON.parse(localStorage.getItem('searchResults'))
         }
-    });
+      });
     }
 
-    if(localStorage.getItem('nominations')) {
+    if (localStorage.getItem('nominations')) {
       store.dispatch({
         type: 'CHANGE_NOMINATIONS',
         payload: {
@@ -33,6 +34,9 @@ function App() {
         <Grid item xs={6}>
           <SearchBar />
           <ResultsContainer />
+        </Grid>
+        <Grid item xs={6}>
+          <NominationContainer />
         </Grid>
       </Grid>
 

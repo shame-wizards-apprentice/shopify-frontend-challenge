@@ -29,21 +29,23 @@ const ResultCard = (props) => {
     const nominateMe = () => {
         const existingNominations = store.getState().nomination.nominations
         for(let i=0; i>existingNominations.length; i++) {
-            if(existingNominations[i].id ===props.id) {
+            if(existingNominations[i].id ===props.imdbID) {
                 console.log('oops, already nominated')
             }
         }
         if(existingNominations.length>=5) {
             console.log('oops, no nomination for you')
         }else {
+            const newNominations = existingNominations.concat(props)
+            console.log(newNominations)
             store.dispatch({
-                type: 'CHANCE_NOMINATIONS',
+                type: 'CHANGE_NOMINATIONS',
                 payload: {
                     ...store.getState().nomination, 
-                    nominations: existingNominations.push(props)
+                    nominations: newNominations
                 }
             });
-            localStorage.setItem('nominations', JSON.stringify(existingNominations))
+            localStorage.setItem('nominations', JSON.stringify(newNominations))
         }
         
     }

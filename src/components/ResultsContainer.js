@@ -13,7 +13,7 @@ const ResultsContainer = (props) => {
                     Poster={result.Poster === 'N/A' ? `${noImg}` : result.Poster}
                     key={result.imdbID}
                     id={result.imdbID}/>
-            ))};
+            ))}
         </div>
     )
 };
