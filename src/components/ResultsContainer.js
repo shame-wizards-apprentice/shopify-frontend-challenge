@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import ResultCard from './ResultCard';
 import noImg from '../images/no-img.png';
 
 const useStyles = makeStyles({
     results: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+        marginLeft: '5vw',
+        marginRight: '5vw',
+        marginTop: '5vh'
     }
 });
 
@@ -17,14 +18,19 @@ const ResultsContainer = (props) => {
 
     return (
         <div className={classes.results}>
+        <Grid container spacing={2}>
             {props.results.map(result => (
-                <ResultCard
-                    Title={result.Title}
-                    Year={result.Year}
-                    Poster={result.Poster === 'N/A' ? `${noImg}` : result.Poster}
-                    key={result.imdbID}
-                    id={result.imdbID} />
+                <Grid item xs={2}>
+                    <ResultCard
+                        longTitle={result.Title}
+                        Title={result.Title.length>20 ? `${result.Title.slice(0, 20)}...` : result.Title}
+                        Year={result.Year}
+                        Poster={result.Poster === 'N/A' ? `${noImg}` : result.Poster}
+                        key={result.imdbID}
+                        id={result.imdbID} />
+                </Grid>
             ))}
+        </Grid>
         </div>
     )
 };

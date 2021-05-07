@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         position: 'relative',
-        height: '70vh',
+        height: '40vh',
         width: '110vw'
     }, 
     heroText: {

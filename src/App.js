@@ -47,18 +47,14 @@ function App() {
         <Hero />
       </Grid>
       <Grid container spacing={3}>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={4}>
-        <SearchBar />
-        </Grid>
-        <Grid item xs={4}></Grid>
+          <SearchBar />
       </Grid>
-      {/* <ResultsContainer /> */}
+      <Grid container spacing={3}>
+        <ResultsContainer />
+      </Grid>
       {/* <Grid item xs={6}>
           <NominationContainer />
         </Grid> */}
-
-
     </div>
   );
 }

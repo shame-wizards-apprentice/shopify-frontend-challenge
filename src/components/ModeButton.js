@@ -40,9 +40,8 @@ const ModeButton = (props) => {
             document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
             document.querySelector('#hero-image').setAttribute('style', 'linear-gradient(to bottom, #D4D3DD, #EFEFBB, rgba(0, 0, 0, 0))');
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)');
-            document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(239, 239, 187, .8); color: rgba(0,0,0,.8)')
-            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(239, 239, 187, .3); color: rgba(0,0,0,.8)')
-
+            document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)')
+            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(212, 211, 221, .7); color: rgba(0,0,0,.8)')
         }
 
         switch (mode) {

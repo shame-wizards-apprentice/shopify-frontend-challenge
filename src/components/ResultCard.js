@@ -1,24 +1,47 @@
 import React, { useState } from 'react';
-import {makeStyles, Card, Button, Snackbar, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { makeStyles, Card, Button, Snackbar, CardActionArea, CardActions, CardContent, CardMedia, Typography, Tooltip } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import store from '../config/store';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-        width: 345,
-        height: 700
-    },
-    media: {
-        height: 10,
-    },
-    cardImage: {
-        objectFit: 'scale-down'
+        minWidth: '10vw',
+        minHeight: '30vh',
+        maxWidth: '30vw',
+        maxHeight: '30vh',
+        boxShadow: '0 8px 16px 0',
+        backgroundColor: 'rgba(212, 211, 221, .7)'
     },
     content: {
-        zIndex: '200'
-    }
-});
+        minWidth: '100%',
+        minHeight: '100%',
+        maxWidth: '50px',
+        maxHeight: '50px',
+        paddingTop: '5px',
+    },
+    media: {
+        maxWidth: '100%',
+        minHeight: '150px',
+        maxHeight: '150px',
+        minWidth: '100%',
+        marginRight: theme.spacing(-1)
+    },
+    text: {
+        fontSize: '.9em',
+        margin: '0px',
+        fontWeight: 'bold'
+    },
+    button: {
+        margin: theme.spacing(-1),
+        fontSize: '.9em',
+        height: '2vh',
+        color: 'black',
+        backgroundColor: 'rgba(212, 211, 221, .8)'
+    },
+
+
+}));
 
 
 const Alert = (props) => {
@@ -65,26 +88,28 @@ const ResultCard = (props) => {
 
             <Card data-key={props.id} className={classes.root}>
                 <CardActionArea>
-                    <img src={props.Poster} alt='movie poster' className={classes.cardImage}></img>
-                    <CardMedia
-                        className={classes.media}
-                        title={props.Title}
-                    />
+                    <Tooltip title={props.longTitle}>
+                        <CardMedia
+                            className={classes.media}
+                            image={props.Poster}
+                            title={props.Title}
+                        />
+                    </Tooltip>
                     <CardContent className={classes.content}>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography className={classes.text}>
                             {props.Title}
                         </Typography>
-                        <Typography gutterBottom variant="caption" component="h2">
+                        <Typography className={classes.text}>
                             {props.Year}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions className={classes.content}>
+                <CardActions>
                     {store.getState().nomination.nominations.indexOf(props) === -1 ?
-                        <Button size="small" color="primary" onClick={nominateMe}>
+                        <Button size="small" color="primary" onClick={nominateMe} className={classes.button}>
                             Nominate
                         </Button> :
-                        <Button variant="contained" disabled>
+                        <Button variant="contained" disabled className={classes.button}>
                             Already nominated
                         </Button>}
                 </CardActions>

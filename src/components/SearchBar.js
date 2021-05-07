@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField, InputBase } from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -12,24 +12,23 @@ const Alert = (props) => {
 }
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
-        },
+    form: {
+        marginBottom: '5vh',
+        marginLeft: '5vw',
     },
     searchBar: {
-        width: '33vw',
-        height: '10vh',
+        width: '90vw',
         border: '1px solid black',
         borderRadius: '5px',
         padding: '5px',
-        backgroundColor: 'rgba(239, 239, 187, .3)'
+        backgroundColor: 'rgba(212, 211, 221, .3)',
+        marginBottom: '2vh'
     },
     button: {
         width: '5vw',
-        backgroundColor: 'rgba(239, 239, 187, .8)',
-        color: 'rgba(0,0,0,.8)'
+        backgroundColor: 'rgba(212, 211, 221, .8)',
+        color: 'rgba(0,0,0,.8)',
+        height: '20px'
     }
 }));
 
@@ -74,16 +73,18 @@ const SearchBar = (props) => {
     }
 
     return (
-        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <form noValidate autoComplete="off" onSubmit={handleSubmit} className={classes.form}>
             <Snackbar open={openState} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error">
                     Oops! The Galactic Council has denied your request. Please try again later.
                 </Alert>
             </Snackbar>
+            <h1>Search for a movie</h1>
             <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={classes.searchBar} id='search-bar'/>
             <br />
             <Button variant="contained" onClick={handleSubmit} className={classes.button} id='submit-button'>Submit</Button>
         </form>
+        
     )
 }
 
