@@ -14,7 +14,10 @@ const useStyles = makeStyles(() => ({
     },
     button: {
         backgroundColor: 'rgba(255, 255, 255, 0)',
-        border: 'none'
+        border: 'none',
+        marginLeft: '1vw',
+        marginTop: '2vh',
+        zIndex: '100'
     }
 }));
 
@@ -24,9 +27,22 @@ const ModeButton = (props) => {
     const switchMode = () => {
         const mode = store.getState().mode.mode;
 
+        const darkMode = () => {
+            document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgDark}` + ')');
+            document.querySelector('#hero-image').setAttribute('style', 'background-image: linear-gradient(to bottom, #000000, #434343, rgba(0, 0, 0, 0))');
+            document.querySelector('#hero-text').setAttribute('style', 'color: rgba(255, 255, 255, .8)')
+        }
+
+        const lightMode = () => {
+            document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
+            document.querySelector('#hero-image').setAttribute('style', 'linear-gradient(to bottom, #D4D3DD, #EFEFBB, rgba(0, 0, 0, 0))');
+            document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)')
+
+        }
+
         switch (mode) {
             case 'Light':
-                document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgDark}` + ')');
+                darkMode();
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
@@ -36,7 +52,7 @@ const ModeButton = (props) => {
                 localStorage.setItem('mode', 'Dark')
                 break;
             case 'Dark':
-                document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
+                lightMode();
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
@@ -46,7 +62,7 @@ const ModeButton = (props) => {
                 localStorage.setItem('mode', 'Light')
                 break;
             default:
-                document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
+                lightMode();
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
@@ -58,10 +74,10 @@ const ModeButton = (props) => {
     }
     return (
         <div>
-            <Tooltip title={props.mode==='Light'? 'Dark Mode' : 'Light Mode'}>
-            <button onClick={switchMode} className={classes.button}>
-                <img src={props.mode === 'Light' ? `${dark}` : `${light}`} alt={props.mode === 'Light' ? 'Dark Mode' : 'Light Mode'} className={classes.image}></img>
-            </button>
+            <Tooltip title={props.mode === 'Light' ? 'Dark Mode' : 'Light Mode'}>
+                <button onClick={switchMode} className={classes.button}>
+                    <img src={props.mode === 'Light' ? `${dark}` : `${light}`} alt={props.mode === 'Light' ? 'Dark Mode' : 'Light Mode'} className={classes.image}></img>
+                </button>
             </Tooltip>
         </div>
     )

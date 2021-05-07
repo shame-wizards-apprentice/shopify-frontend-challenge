@@ -5,7 +5,7 @@ import store from './config/store'
 import SearchBar from './components/SearchBar';
 import ResultsContainer from './components/ResultsContainer';
 import NominationContainer from './components/NominationContainer';
-import ModeButton from './components/ModeButton';
+import Hero from './components/Hero';
 
 
 function App() {
@@ -43,8 +43,12 @@ function App() {
 
   return (
     <div className="App">
-      <ModeButton />
-      {/* <SearchBar /> */}
+      <Grid container spacing={3}>
+        <Hero />
+      </Grid>
+      <Grid container spacing={3}>
+        <SearchBar />
+      </Grid>
       {/* <ResultsContainer /> */}
       {/* <Grid item xs={6}>
           <NominationContainer />
