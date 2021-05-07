@@ -26,7 +26,19 @@ function App() {
         }
       });
     }
+
+    if (localStorage.getItem('mode')) {
+      store.dispatch({
+        type: 'SWITCH_MODE',
+        payload: {
+          mode: localStorage.getItem('mode')
+        }
+      });
+    }
+    
   });
+
+
 
   return (
     <div className="App">
