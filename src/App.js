@@ -5,6 +5,7 @@ import store from './config/store'
 import SearchBar from './components/SearchBar';
 import ResultsContainer from './components/ResultsContainer';
 import NominationContainer from './components/NominationContainer';
+import ModeButton from './components/ModeButton';
 
 
 function App() {
@@ -35,19 +36,20 @@ function App() {
         }
       });
     }
-    
+
   });
 
 
 
   return (
     <div className="App">
-          <SearchBar />
-          <ResultsContainer />
-        {/* <Grid item xs={6}>
+      <ModeButton />
+      {/* <SearchBar /> */}
+      {/* <ResultsContainer /> */}
+      {/* <Grid item xs={6}>
           <NominationContainer />
         </Grid> */}
-  
+
 
     </div>
   );
