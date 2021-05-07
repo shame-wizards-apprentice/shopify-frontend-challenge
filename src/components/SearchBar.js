@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import { TextField, InputBase } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -18,6 +18,19 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    searchBar: {
+        width: '33vw',
+        height: '10vh',
+        border: '1px solid black',
+        borderRadius: '5px',
+        padding: '5px',
+        backgroundColor: 'rgba(239, 239, 187, .3)'
+    },
+    button: {
+        width: '5vw',
+        backgroundColor: 'rgba(239, 239, 187, .8)',
+        color: 'rgba(0,0,0,.8)'
+    }
 }));
 
 const SearchBar = (props) => {
@@ -67,9 +80,9 @@ const SearchBar = (props) => {
                     Oops! The Galactic Council has denied your request. Please try again later.
                 </Alert>
             </Snackbar>
-            <TextField id="outlined-basic" label="Search" variant="outlined" name="search" onChange={handleInputChange} />
+            <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={classes.searchBar} id='search-bar'/>
             <br />
-            <Button variant="contained" onClick={handleSubmit} >Submit</Button>
+            <Button variant="contained" onClick={handleSubmit} className={classes.button} id='submit-button'>Submit</Button>
         </form>
     )
 }

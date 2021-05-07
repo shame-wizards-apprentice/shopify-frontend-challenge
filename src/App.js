@@ -47,7 +47,11 @@ function App() {
         <Hero />
       </Grid>
       <Grid container spacing={3}>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={4}>
         <SearchBar />
+        </Grid>
+        <Grid item xs={4}></Grid>
       </Grid>
       {/* <ResultsContainer /> */}
       {/* <Grid item xs={6}>

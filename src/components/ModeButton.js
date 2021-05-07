@@ -31,12 +31,17 @@ const ModeButton = (props) => {
             document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgDark}` + ')');
             document.querySelector('#hero-image').setAttribute('style', 'background-image: linear-gradient(to bottom, #000000, #434343, rgba(0, 0, 0, 0))');
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(255, 255, 255, .8)')
+            document.querySelector('#submit-button').setAttribute('style', 'background-color: #434343; color: rgba(255, 255, 255, .8)');
+            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(67, 67, 67, .3); color: rgba(255, 255, 255, .8)')
+            
         }
 
         const lightMode = () => {
             document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
             document.querySelector('#hero-image').setAttribute('style', 'linear-gradient(to bottom, #D4D3DD, #EFEFBB, rgba(0, 0, 0, 0))');
-            document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)')
+            document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)');
+            document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(239, 239, 187, .8); color: rgba(0,0,0,.8)')
+            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(239, 239, 187, .3); color: rgba(0,0,0,.8)')
 
         }
 
