@@ -30,15 +30,12 @@ function App() {
 
   return (
     <div className="App">
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
           <SearchBar />
           <ResultsContainer />
-        </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <NominationContainer />
-        </Grid>
-      </Grid>
+        </Grid> */}
+  
 
     </div>
   );

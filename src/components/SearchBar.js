@@ -61,7 +61,7 @@ const SearchBar = (props) => {
     }
 
     return (
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
             <Snackbar open={openState} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error">
                     Oops! The Galactic Council has denied your request. Please try again later.

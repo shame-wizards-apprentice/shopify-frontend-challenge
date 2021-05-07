@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Snackbar from '@material-ui/core/Snackbar';
+import {makeStyles, Card, Button, Snackbar, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import store from '../config/store';
 
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles({
+    root: {
+        width: 345,
+        height: 700
+    },
     media: {
-        height: '50vh',
+        height: 10,
     },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        height: '50vh',
-        boxShadow: '5px 10px 10px',
-        marginTop: '5vh'
+    cardImage: {
+        objectFit: 'scale-down'
     },
-}));
+    content: {
+        zIndex: '200'
+    }
+});
+
 
 const Alert = (props) => {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -66,14 +62,15 @@ const ResultCard = (props) => {
                     You can only nominate 5, dumbass
                 </Alert>
             </Snackbar>
-            <Card data-key={props.id}>
+
+            <Card data-key={props.id} className={classes.root}>
                 <CardActionArea>
-                    <img className={classes.cardImage} src={props.Poster} alt=''></img>
+                    <img src={props.Poster} alt='movie poster' className={classes.cardImage}></img>
                     <CardMedia
                         className={classes.media}
                         title={props.Title}
                     />
-                    <CardContent>
+                    <CardContent className={classes.content}>
                         <Typography gutterBottom variant="h5" component="h2">
                             {props.Title}
                         </Typography>
@@ -82,7 +79,7 @@ const ResultCard = (props) => {
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions>
+                <CardActions className={classes.content}>
                     {store.getState().nomination.nominations.indexOf(props) === -1 ?
                         <Button size="small" color="primary" onClick={nominateMe}>
                             Nominate

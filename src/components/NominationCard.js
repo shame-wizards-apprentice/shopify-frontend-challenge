@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+import { Card, Paper } from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,17 +10,19 @@ import Typography from '@material-ui/core/Typography';
 import store from '../config/store';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        maxWidth: 345,
+        maxHeight: 700
+    },
     media: {
-        height: '50vh',
+        height: 10,
     },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        height: '50vh',
-        boxShadow: '5px 10px 10px',
-        marginTop: '5vh'
+    cardImage: {
+        objectFit: 'scale-down'
     },
+    content: {
+        zIndex: '200'
+    }
 }));
 
 const NominationCard = (props) => {
@@ -33,7 +35,7 @@ const NominationCard = (props) => {
         store.dispatch({
             type: 'CHANGE_NOMINATIONS',
             payload: {
-                ...store.getState().nomination, 
+                ...store.getState().nomination,
                 nominations: newNominations
             }
         });
@@ -41,14 +43,14 @@ const NominationCard = (props) => {
     }
 
     return (
-        <Card data-key={props.id}>
+        <Card data-key={props.id} className={classes.root}>
             <CardActionArea>
                 <img className={classes.cardImage} src={props.Poster} alt=''></img>
                 <CardMedia
                     className={classes.media}
                     title={props.Title}
                 />
-                <CardContent>
+                <CardContent className={classes.content}>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.Title}
                     </Typography>
@@ -57,7 +59,7 @@ const NominationCard = (props) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions className={classes.content}>
                 <Button size="small" color="primary" onClick={removeMe}>
                     Remove
                 </Button>
@@ -66,4 +68,4 @@ const NominationCard = (props) => {
     )
 }
 
-export default NominationCard; 
+export default NominationCard;
