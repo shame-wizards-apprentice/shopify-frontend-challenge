@@ -36,10 +36,7 @@ function App() {
         }
       });
     }
-
   });
-
-
 
   return (
     <div className="App">
@@ -47,14 +44,14 @@ function App() {
         <Hero />
       </Grid>
       <Grid container spacing={3}>
-          <SearchBar />
+        <NominationContainer /> 
+      </Grid>
+      <Grid container spacing={3}>
+        <SearchBar />
       </Grid>
       <Grid container spacing={3}>
         <ResultsContainer />
       </Grid>
-      {/* <Grid item xs={6}>
-          <NominationContainer />
-        </Grid> */}
     </div>
   );
 }

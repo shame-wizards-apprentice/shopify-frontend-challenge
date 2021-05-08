@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, Paper } from '@material-ui/core';
+import { Card, Tooltip } from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,17 +11,38 @@ import store from '../config/store';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
-        maxHeight: 700
-    },
-    media: {
-        height: 10,
-    },
-    cardImage: {
-        objectFit: 'scale-down'
+        minWidth: '10vw',
+        minHeight: '30vh',
+        maxWidth: '30vw',
+        maxHeight: '30vh',
+        boxShadow: '0 8px 16px 0',
+        backgroundColor: 'rgba(212, 211, 221, .7)'
     },
     content: {
-        zIndex: '200'
+        minWidth: '100%',
+        minHeight: '100%',
+        maxWidth: '50px',
+        maxHeight: '50px',
+        paddingTop: '5px',
+    },
+    media: {
+        maxWidth: '100%',
+        minHeight: '150px',
+        maxHeight: '150px',
+        minWidth: '100%',
+        marginRight: theme.spacing(-1)
+    },
+    text: {
+        fontSize: '.9em',
+        margin: '0px',
+        fontWeight: 'bold',
+        color: 'rgba(0,0,0,.8)'
+    },
+    button: {
+        margin: theme.spacing(-1),
+        fontSize: '.9em',
+        height: '2vh',
+        color: 'rgba(0,0,0,.8)'
     }
 }));
 
@@ -35,7 +56,6 @@ const NominationCard = (props) => {
         store.dispatch({
             type: 'CHANGE_NOMINATIONS',
             payload: {
-                ...store.getState().nomination,
                 nominations: newNominations
             }
         });
@@ -43,28 +63,30 @@ const NominationCard = (props) => {
     }
 
     return (
-        <Card data-key={props.id} className={classes.root}>
-            <CardActionArea>
-                <img className={classes.cardImage} src={props.Poster} alt=''></img>
-                <CardMedia
-                    className={classes.media}
-                    title={props.Title}
-                />
-                <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.Title}
-                    </Typography>
-                    <Typography gutterBottom variant="caption" component="h2">
-                        {props.Year}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions className={classes.content}>
-                <Button size="small" color="primary" onClick={removeMe}>
-                    Remove
-                </Button>
-            </CardActions>
-        </Card>
+        <Card data-key={props.id} className={`${classes.root} result-card`}>
+                <CardActionArea>
+                    <Tooltip title={props.longTitle}>
+                        <CardMedia
+                            className={classes.media}
+                            image={props.Poster}
+                            title={props.Title}
+                        />
+                    </Tooltip>
+                    <CardContent className={classes.content}>
+                        <Typography className={`${classes.text} result-text`}>
+                            {props.Title}
+                        </Typography>
+                        <Typography className={`${classes.text} result-text`}>
+                            {props.Year}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                        <Button size="small" color="primary" onClick={removeMe} className={`${classes.button} result-text`}>
+                            Remove
+                        </Button> 
+                </CardActions>
+            </Card>
     )
 }
 

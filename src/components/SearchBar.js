@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     form: {
         marginBottom: '5vh',
         marginLeft: '5vw',
+        marginTop: '5vh'
     },
     searchBar: {
         width: '90vw',
@@ -31,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
         height: '20px'
     },
     text: {
-        color: 'rgba(0,0,0,.8)'
+        color: 'rgba(0,0,0,.8)',
+        textAlign: 'center'
     }
 }));
 
@@ -83,7 +85,7 @@ const SearchBar = (props) => {
                     Oops! The Galactic Council has denied your request. Please try again later.
                 </Alert>
             </Snackbar>
-            <h1 className={classes.text} id='search-text'>Search for a movie</h1>
+            <h1 className={`${classes.text} result-text`}>Search for a movie</h1>
             <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={classes.searchBar} id='search-bar'/>
             <br />
             <Button variant="contained" onClick={handleSubmit} className={classes.button} id='submit-button'>Submit</Button>

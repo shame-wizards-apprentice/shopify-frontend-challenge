@@ -28,8 +28,8 @@ const Hero = () => {
         <div className={classes.heroImage} id='hero-image'>
             <ModeButton />
             <div className={classes.heroText} id='hero-text'>
-                <h1>Welcome to Movie App!</h1>
-                <h3>Now GTFO</h3>
+                <h1>Welcome to your movie dashboard!</h1>
+                <h3>Browse movies and nominate your favorites for awards!</h3>
             </div>
         </div>
     )

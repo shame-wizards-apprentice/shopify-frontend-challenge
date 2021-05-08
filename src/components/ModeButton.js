@@ -33,8 +33,8 @@ const ModeButton = (props) => {
             document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgDark}` + ')');
             document.querySelector('#hero-image').setAttribute('style', 'background-image: linear-gradient(to bottom, #000000, #434343, rgba(0, 0, 0, 0))');
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(255, 255, 255, .8)');
-            document.querySelector('#search-text').setAttribute('style', 'color: rgba(255, 255, 255, .8)')
             document.querySelector('#submit-button').setAttribute('style', 'background-color: #434343; color: rgba(255, 255, 255, .8)');
+            document.querySelector('#clear-button').setAttribute('style', 'background-color: #434343; color: rgba(255, 255, 255, .8)');
             document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(67, 67, 67, .3); color: rgba(255, 255, 255, .8)');
             for(let i=0; i<resultCards.length; i++) {
                 resultCards[i].setAttribute('style', 'background-color: rgba(67, 67, 67, 1)')
@@ -48,9 +48,9 @@ const ModeButton = (props) => {
             document.querySelector('body').setAttribute('style', 'background-image: url(' + `${bgLight}` + ')');
             document.querySelector('#hero-image').setAttribute('style', 'linear-gradient(to bottom, #D4D3DD, #EFEFBB, rgba(0, 0, 0, 0))');
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)');
-            document.querySelector('#search-text').setAttribute('style', 'color: rgba(0,0,0,.8)');
-            document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)')
-            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(212, 211, 221, .7); color: rgba(0,0,0,.8)')
+            document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)');
+            document.querySelector('#clear-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)');
+            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(212, 211, 221, .7); color: rgba(0,0,0,.8)');
             for(let i=0; i<resultCards.length; i++) {
                 resultCards[i].setAttribute('style', 'background-color: rgba(212, 211, 221, .7)')
             }

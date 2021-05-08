@@ -63,7 +63,6 @@ const ResultCard = (props) => {
             setOpenState(true)
         } else if (existingNominations.indexOf(props) === -1) {
             const newNominations = existingNominations.concat(props)
-            console.log(newNominations)
             store.dispatch({
                 type: 'CHANGE_NOMINATIONS',
                 payload: {

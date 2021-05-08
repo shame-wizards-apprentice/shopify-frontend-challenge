@@ -9,7 +9,8 @@ const useStyles = makeStyles({
     results: {
         marginLeft: '5vw',
         marginRight: '5vw',
-        marginTop: '5vh'
+        marginTop: '5vh',
+        marginBottom: '5vh'
     }
 });
 
