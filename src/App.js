@@ -25,8 +25,7 @@ function App() {
         type: 'CHANGE_NOMINATIONS',
         payload: {
           ...store.getState().nomination,
-          nominations: []
-          // nominations: JSON.parse(localStorage.getItem('nominations'))
+          nominations: JSON.parse(localStorage.getItem('nominations'))
         }
       });
     }
