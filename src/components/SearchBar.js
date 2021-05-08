@@ -29,11 +29,15 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(212, 211, 221, .8)',
         color: 'rgba(0,0,0,.8)',
         height: '20px'
+    },
+    text: {
+        color: 'rgba(0,0,0,.8)'
     }
 }));
 
 const SearchBar = (props) => {
     const classes = useStyles();
+
 
     const [searchState, setSearchState] = useState({
         search: ''
@@ -79,7 +83,7 @@ const SearchBar = (props) => {
                     Oops! The Galactic Council has denied your request. Please try again later.
                 </Alert>
             </Snackbar>
-            <h1>Search for a movie</h1>
+            <h1 className={classes.text} id='search-text'>Search for a movie</h1>
             <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={classes.searchBar} id='search-bar'/>
             <br />
             <Button variant="contained" onClick={handleSubmit} className={classes.button} id='submit-button'>Submit</Button>

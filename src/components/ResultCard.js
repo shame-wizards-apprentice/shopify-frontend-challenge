@@ -30,17 +30,15 @@ const useStyles = makeStyles((theme) => ({
     text: {
         fontSize: '.9em',
         margin: '0px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'rgba(0,0,0,.8)'
     },
     button: {
         margin: theme.spacing(-1),
         fontSize: '.9em',
         height: '2vh',
-        color: 'black',
-        backgroundColor: 'rgba(212, 211, 221, .8)'
-    },
-
-
+        color: 'rgba(0,0,0,.8)'
+    }
 }));
 
 
@@ -86,7 +84,7 @@ const ResultCard = (props) => {
                 </Alert>
             </Snackbar>
 
-            <Card data-key={props.id} className={classes.root}>
+            <Card data-key={props.id} className={`${classes.root} result-card`}>
                 <CardActionArea>
                     <Tooltip title={props.longTitle}>
                         <CardMedia
@@ -96,20 +94,20 @@ const ResultCard = (props) => {
                         />
                     </Tooltip>
                     <CardContent className={classes.content}>
-                        <Typography className={classes.text}>
+                        <Typography className={`${classes.text} result-text`}>
                             {props.Title}
                         </Typography>
-                        <Typography className={classes.text}>
+                        <Typography className={`${classes.text} result-text`}>
                             {props.Year}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
                     {store.getState().nomination.nominations.indexOf(props) === -1 ?
-                        <Button size="small" color="primary" onClick={nominateMe} className={classes.button}>
+                        <Button size="small" color="primary" onClick={nominateMe} className={`${classes.button} result-text`}>
                             Nominate
                         </Button> :
-                        <Button variant="contained" disabled className={classes.button}>
+                        <Button variant="contained" disabled className={`${classes.button} result-text`}>
                             Already nominated
                         </Button>}
                 </CardActions>
