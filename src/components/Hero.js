@@ -29,7 +29,7 @@ const Hero = () => {
             <ModeButton />
             <div className={classes.heroText} id='hero-text'>
                 <h1>Welcome to your movie dashboard!</h1>
-                <h3>Browse movies and nominate your favorites for awards!</h3>
+                <h3>Browse movies and nominate up to 5 favorites for awards!</h3>
             </div>
         </div>
     )

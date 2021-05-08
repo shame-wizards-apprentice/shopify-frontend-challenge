@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
+import { makeStyles, Tooltip } from '@material-ui/core/';
 import store from '../config/store';
 import dark from '../images/dark.png';
 import light from '../images/light.png';
@@ -35,7 +34,7 @@ const ModeButton = (props) => {
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(255, 255, 255, .8)');
             document.querySelector('#submit-button').setAttribute('style', 'background-color: #434343; color: rgba(255, 255, 255, .8)');
             document.querySelector('#clear-button').setAttribute('style', 'background-color: #434343; color: rgba(255, 255, 255, .8)');
-            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(67, 67, 67, .3); color: rgba(255, 255, 255, .8)');
+            document.querySelector('.search-bar').setAttribute('style', 'background-color: rgba(67, 67, 67, .3); color: rgba(255, 255, 255, .8)');
             for(let i=0; i<resultCards.length; i++) {
                 resultCards[i].setAttribute('style', 'background-color: rgba(67, 67, 67, 1)')
             }
@@ -50,7 +49,7 @@ const ModeButton = (props) => {
             document.querySelector('#hero-text').setAttribute('style', 'color: rgba(0,0,0,.8)');
             document.querySelector('#submit-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)');
             document.querySelector('#clear-button').setAttribute('style', 'background-color: rgba(212, 211, 221, .8); color: rgba(0,0,0,.8)');
-            document.querySelector('#search-bar').setAttribute('style', 'background-color: rgba(212, 211, 221, .7); color: rgba(0,0,0,.8)');
+            document.querySelector('.search-bar').setAttribute('style', 'background-color: rgba(212, 211, 221, .7); color: rgba(0,0,0,.8)');
             for(let i=0; i<resultCards.length; i++) {
                 resultCards[i].setAttribute('style', 'background-color: rgba(212, 211, 221, .7)')
             }
@@ -94,6 +93,7 @@ const ModeButton = (props) => {
                 localStorage.setItem('mode', 'Light')
         }
     }
+    
     return (
         <div>
             <Tooltip title={props.mode === 'Light' ? 'Dark Mode' : 'Light Mode'}>

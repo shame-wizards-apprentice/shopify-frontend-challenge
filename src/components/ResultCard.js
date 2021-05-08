@@ -79,7 +79,7 @@ const ResultCard = (props) => {
         <div>
             <Snackbar open={openState} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error">
-                    You can only nominate 5, dumbass
+                    Oops! You have too many nominations! Remove one, or clear them all to nominate new movies.
                 </Alert>
             </Snackbar>
 

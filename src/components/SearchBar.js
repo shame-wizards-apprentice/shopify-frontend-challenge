@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { InputBase } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
+import { InputBase, Button, Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import API from '../utils/API';
 import store from '../config/store';
@@ -39,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = (props) => {
     const classes = useStyles();
-
 
     const [searchState, setSearchState] = useState({
         search: ''
@@ -83,11 +80,11 @@ const SearchBar = (props) => {
         <form noValidate autoComplete="off" onSubmit={handleSubmit} className={classes.form}>
             <Snackbar open={openState} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error">
-                    Oops! The Galactic Council has denied your request. Please try again later.
+                    Oops! We couldn't find what you're looking for. Try again!
                 </Alert>
             </Snackbar>
             <h1 className={`${classes.text} result-text`}>Search for a movie</h1>
-            <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={classes.searchBar} id='search-bar'/>
+            <InputBase id="outlined-basic" placeholder="Search" variant="outlined" name="search" onChange={handleInputChange} className={`${classes.searchBar} search-bar`} />
             <br />
             <Button variant="contained" onClick={handleSubmit} className={classes.button} id='submit-button'>Submit</Button>
         </form>

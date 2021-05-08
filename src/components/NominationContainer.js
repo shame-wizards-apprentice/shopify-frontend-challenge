@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles, Grid, Button } from '@material-ui/core';
+import store from '../config/store';
 import noImg from '../images/no-img.png';
 import NominationCard from './NominationCard';
-import store from '../config/store';
 
 const useStyles = makeStyles({
     nominations: {
