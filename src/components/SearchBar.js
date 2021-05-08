@@ -70,6 +70,7 @@ const SearchBar = (props) => {
                 store.dispatch({
                     type: 'SEARCH_MOVIES',
                     payload: {
+                        ...store.getState().result,
                         results: res.data.Search
                     }
                 });

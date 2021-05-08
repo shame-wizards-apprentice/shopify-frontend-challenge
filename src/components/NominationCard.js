@@ -52,10 +52,10 @@ const NominationCard = (props) => {
     const removeMe = () => {
         const noms = store.getState().nomination.nominations
         const newNominations = noms.filter(nom => nom.id !== props.id)
-        console.log(newNominations)
         store.dispatch({
             type: 'CHANGE_NOMINATIONS',
             payload: {
+                ...store.getState().nomination,
                 nominations: newNominations
             }
         });
@@ -65,13 +65,12 @@ const NominationCard = (props) => {
     return (
         <Card data-key={props.id} className={`${classes.root} result-card`}>
                 <CardActionArea>
-                    <Tooltip title={props.longTitle}>
                         <CardMedia
                             className={classes.media}
                             image={props.Poster}
                             title={props.Title}
                         />
-                    </Tooltip>
+                        <Tooltip title={props.longTitle}>
                     <CardContent className={classes.content}>
                         <Typography className={`${classes.text} result-text`}>
                             {props.Title}
@@ -80,6 +79,7 @@ const NominationCard = (props) => {
                             {props.Year}
                         </Typography>
                     </CardContent>
+                    </Tooltip>
                 </CardActionArea>
                 <CardActions>
                         <Button size="small" color="primary" onClick={removeMe} className={`${classes.button} result-text`}>
@@ -87,6 +87,7 @@ const NominationCard = (props) => {
                         </Button> 
                 </CardActions>
             </Card>
+            
     )
 }
 

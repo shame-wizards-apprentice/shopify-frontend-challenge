@@ -65,6 +65,7 @@ const ModeButton = (props) => {
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
+                        ...store.getState().mode,
                         mode: 'Dark'
                     }
                 });
@@ -75,6 +76,7 @@ const ModeButton = (props) => {
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
+                        ...store.getState().mode,
                         mode: 'Light'
                     }
                 });
@@ -85,6 +87,7 @@ const ModeButton = (props) => {
                 store.dispatch({
                     type: 'SWITCH_MODE',
                     payload: {
+                        ...store.getState().mode,
                         mode: 'Light'
                     }
                 });

@@ -14,6 +14,7 @@ function App() {
       store.dispatch({
         type: 'SEARCH_MOVIES',
         payload: {
+          ...store.getState().result,
           results: JSON.parse(localStorage.getItem('searchResults'))
         }
       });
@@ -23,7 +24,9 @@ function App() {
       store.dispatch({
         type: 'CHANGE_NOMINATIONS',
         payload: {
-          nominations: JSON.parse(localStorage.getItem('nominations'))
+          ...store.getState().nomination,
+          nominations: []
+          // nominations: JSON.parse(localStorage.getItem('nominations'))
         }
       });
     }
@@ -32,6 +35,7 @@ function App() {
       store.dispatch({
         type: 'SWITCH_MODE',
         payload: {
+          ...store.getState().mode,
           mode: localStorage.getItem('mode')
         }
       });
@@ -44,7 +48,7 @@ function App() {
         <Hero />
       </Grid>
       <Grid container spacing={3}>
-        <NominationContainer /> 
+      <NominationContainer />
       </Grid>
       <Grid container spacing={3}>
         <SearchBar />
