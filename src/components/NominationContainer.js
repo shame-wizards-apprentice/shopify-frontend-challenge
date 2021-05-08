@@ -53,7 +53,7 @@ const NominationContainer = (props) => {
                 ))}
             </Grid>
             
-            {props.nominations.length ? <Button variant="contained" onClick={deleteMe} className={classes.button} id='clear-button'>Clear All Nominations</Button> : <div />}
+            {props.nominations.length ? <Button variant="contained" onClick={deleteMe} className={classes.button} id='clear-button'>Clear All Nominations</Button> : <div id='clear-button'/>}
         </div>
     )
 };

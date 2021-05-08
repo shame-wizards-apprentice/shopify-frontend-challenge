@@ -51,7 +51,7 @@ const NominationCard = (props) => {
 
     const removeMe = () => {
         const noms = store.getState().nomination.nominations
-        const newNominations = noms.filter(nom => nom.id !== props.id)
+        const newNominations = noms.filter(nom => nom.Poster !== props.Poster)
         store.dispatch({
             type: 'CHANGE_NOMINATIONS',
             payload: {
